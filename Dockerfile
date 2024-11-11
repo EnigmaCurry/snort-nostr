@@ -1,4 +1,4 @@
-FROM node:current as build
+FROM node:22 as build
 WORKDIR /src
 ARG GIT_REPO=https://git.v0l.io/Kieran/snort
 ARG GIT_BRANCH=main
