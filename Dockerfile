@@ -1,8 +1,10 @@
 FROM node:current as build
 WORKDIR /src
+ARG GIT_REPO=https://git.v0l.io/Kieran/snort
+ARG GIT_BRANCH=main
 RUN apt update \
     && apt install -y --no-install-recommends git \
-    && git clone --single-branch -b main https://git.v0l.io/Kieran/snort \
+    && git clone --single-branch -b ${GIT_BRANCH} ${GIT_REPO} \
     && cd snort \
     && yarn --network-timeout 1000000 \
     && yarn build
